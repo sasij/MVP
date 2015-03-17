@@ -28,6 +28,7 @@ public class ImageListAdapter extends ArrayAdapter<ImageDto> {
         this.context = context;
         this.inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
     }
 
 

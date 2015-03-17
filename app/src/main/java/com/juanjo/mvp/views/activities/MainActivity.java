@@ -11,9 +11,9 @@ import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.juanjo.mvp.R;
+import com.juanjo.mvp.interfaces.IMainActivityPresenter;
 import com.juanjo.mvp.interfaces.IMainView;
 import com.juanjo.mvp.models.ImageDto;
-import com.juanjo.mvp.presenters.MainViewPresenter;
 import com.juanjo.mvp.views.adapters.ImageListAdapter;
 
 import org.parceler.Parcels;
@@ -35,9 +35,7 @@ public class MainActivity extends RoboActivity implements IMainView, AdapterView
     Button retryButton;
 
     @Inject
-    MainViewPresenter presenter;
-
-    ImageListAdapter adapter;
+    IMainActivityPresenter presenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +46,12 @@ public class MainActivity extends RoboActivity implements IMainView, AdapterView
     }
 
     @Override
-    public void createList(List<ImageDto> images) {
-        adapter = new ImageListAdapter(this, images);
+    public ImageListAdapter createImageAdapter(List<ImageDto> images) {
+        return new ImageListAdapter(this, images);
+    }
+
+    @Override
+    public void createList(ImageListAdapter adapter) {
         list.setAdapter(adapter);
         list.setOnItemClickListener(this);
     }
@@ -90,11 +92,15 @@ public class MainActivity extends RoboActivity implements IMainView, AdapterView
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        presenter.onItemClicked(position);
+    }
+
+    @Override
+    public void goToDetailActivity(ImageDto image) {
         Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra("IMAGE", Parcels.wrap(presenter.getImage(position)));
+        intent.putExtra("IMAGE", Parcels.wrap(image));
         startActivity(intent);
     }
 }

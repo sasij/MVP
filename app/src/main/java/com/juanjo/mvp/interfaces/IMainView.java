@@ -1,6 +1,7 @@
 package com.juanjo.mvp.interfaces;
 
 import com.juanjo.mvp.models.ImageDto;
+import com.juanjo.mvp.views.adapters.ImageListAdapter;
 
 import java.util.List;
 
@@ -9,7 +10,11 @@ import java.util.List;
  */
 public interface IMainView {
 
-    public void createList(List<ImageDto> images);
+    public void createList(ImageListAdapter adapter);
+
+    public ImageListAdapter createImageAdapter(List<ImageDto> images);
+
+    public void goToDetailActivity(ImageDto image);
 
     public void showProgressBar();
 

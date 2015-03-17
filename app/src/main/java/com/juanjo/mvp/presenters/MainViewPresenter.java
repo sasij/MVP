@@ -13,11 +13,11 @@ import java.util.List;
  */
 public class MainViewPresenter implements IMainActivityPresenter {
 
-    IMainView view;
-
     @Inject
-    ImageBuilder imageBuilder;
-    List<ImageDto> images;
+    private ImageBuilder imageBuilder;
+
+    private IMainView view;
+    private List<ImageDto> images;
 
     @Override
     public void onCreate(IMainView view) {
@@ -25,29 +25,34 @@ public class MainViewPresenter implements IMainActivityPresenter {
 
         view.showProgressBar();
         view.hideList();
-        getImages();
+        getImagesFromService();
         showList();
     }
 
     @Override
-    public void getImages() {
-
+    public void getImagesFromService() {
         //Here we can doing the request to get the data
         //In the example, I have the data hardcoded in the code
         images = imageBuilder.getImages();
-
     }
 
     @Override
     public void showList() {
         view.hideProgressBar();
-        view.createList(images);
+        view.createList(view.createImageAdapter(images));//Inversion Dependency
         view.showList();
     }
 
     @Override
-    public ImageDto getImage(int position) {
+    public void onItemClicked(int position) {
+        view.goToDetailActivity(getImage(position));
+    }
+
+    private ImageDto getImage(int position) {
         return images.get(position);
     }
 
+    private List<ImageDto> getImages() {
+        return images;
+    }
 }
