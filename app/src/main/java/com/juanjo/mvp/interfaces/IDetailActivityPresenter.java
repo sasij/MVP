@@ -1,14 +1,12 @@
 package com.juanjo.mvp.interfaces;
 
-import android.content.Intent;
+import com.juanjo.mvp.models.ImageDto;
 
 /**
  * Created by juanjo on 14/2/15.
  */
 public interface IDetailActivityPresenter {
 
-    public void onCreate(IDetailView view, Intent intent);
-
-    public void getImageFromIntent(Intent intent);
+	public void onCreate(IDetailView view, ImageDto image);
 
 }
