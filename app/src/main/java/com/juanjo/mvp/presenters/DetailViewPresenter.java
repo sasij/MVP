@@ -1,13 +1,13 @@
 package com.juanjo.mvp.presenters;
 
-import com.juanjo.mvp.interfaces.IDetailActivityPresenter;
+import com.juanjo.mvp.interfaces.IDetailViewPresenter;
 import com.juanjo.mvp.interfaces.IDetailView;
 import com.juanjo.mvp.models.ImageDto;
 
 /**
  * Created by juanjo on 14/2/15.
  */
-public class DetailViewPresenter implements IDetailActivityPresenter {
+public class DetailViewPresenter implements IDetailViewPresenter {
 
 	private IDetailView view;
 	private ImageDto image;

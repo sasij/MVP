@@ -3,8 +3,8 @@ package com.juanjo.mvp.roboguice.modules;
 import android.app.Application;
 
 import com.google.inject.AbstractModule;
-import com.juanjo.mvp.interfaces.IDetailActivityPresenter;
-import com.juanjo.mvp.interfaces.IMainActivityPresenter;
+import com.juanjo.mvp.interfaces.IDetailViewPresenter;
+import com.juanjo.mvp.interfaces.IMainViewPresenter;
 import com.juanjo.mvp.presenters.DetailViewPresenter;
 import com.juanjo.mvp.presenters.MainViewPresenter;
 
@@ -24,7 +24,7 @@ public class MVPModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-		bind(IMainActivityPresenter.class).to(MainViewPresenter.class);
-		bind(IDetailActivityPresenter.class).to(DetailViewPresenter.class);
+		bind(IMainViewPresenter.class).to(MainViewPresenter.class);
+		bind(IDetailViewPresenter.class).to(DetailViewPresenter.class);
 	}
 }

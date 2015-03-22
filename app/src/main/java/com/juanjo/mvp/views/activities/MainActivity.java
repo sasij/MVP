@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.juanjo.mvp.R;
-import com.juanjo.mvp.interfaces.IMainActivityPresenter;
 import com.juanjo.mvp.interfaces.IMainView;
+import com.juanjo.mvp.interfaces.IMainViewPresenter;
 import com.juanjo.mvp.models.ImageDto;
 import com.juanjo.mvp.views.adapters.ImageListAdapter;
 
@@ -20,11 +20,11 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
-import roboguice.activity.RoboActivity;
+import roboguice.activity.RoboActionBarActivity;
 import roboguice.inject.InjectView;
 
 
-public class MainActivity extends RoboActivity implements IMainView, AdapterView.OnItemClickListener {
+public class MainActivity extends RoboActionBarActivity implements IMainView, AdapterView.OnItemClickListener {
 
 
     @InjectView(R.id.list)
@@ -35,7 +35,7 @@ public class MainActivity extends RoboActivity implements IMainView, AdapterView
     Button retryButton;
 
     @Inject
-    IMainActivityPresenter presenter;
+    IMainViewPresenter presenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class MainActivity extends RoboActivity implements IMainView, AdapterView
         setContentView(R.layout.activity_main);
 
         presenter.onCreate(this);
+        presenter.getImagesFromService();
     }
 
     @Override

@@ -1,17 +1,17 @@
 package com.juanjo.mvp.presenters;
 
-import java.util.List;
-
 import com.google.inject.Inject;
 import com.juanjo.mvp.helpers.ImageBuilder;
-import com.juanjo.mvp.interfaces.IMainActivityPresenter;
 import com.juanjo.mvp.interfaces.IMainView;
+import com.juanjo.mvp.interfaces.IMainViewPresenter;
 import com.juanjo.mvp.models.ImageDto;
+
+import java.util.List;
 
 /**
  * Created by juanjo on 14/2/15.
  */
-public class MainViewPresenter implements IMainActivityPresenter {
+public class MainViewPresenter implements IMainViewPresenter {
 
 	@Inject
 	private ImageBuilder imageBuilder;

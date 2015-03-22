@@ -3,7 +3,7 @@ package com.juanjo.mvp.interfaces;
 /**
  * Created by juanjo on 14/2/15.
  */
-public interface IMainActivityPresenter {
+public interface IMainViewPresenter {
 
     public void onCreate(IMainView view);
 

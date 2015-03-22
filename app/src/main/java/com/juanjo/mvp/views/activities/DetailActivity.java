@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.google.inject.Inject;
 import com.juanjo.mvp.R;
-import com.juanjo.mvp.interfaces.IDetailActivityPresenter;
+import com.juanjo.mvp.interfaces.IDetailViewPresenter;
 import com.juanjo.mvp.interfaces.IDetailView;
 import com.juanjo.mvp.models.ImageDto;
 import com.squareup.picasso.Picasso;
@@ -28,7 +28,7 @@ public class DetailActivity extends RoboActivity implements IDetailView {
 	TextView title;
 
 	@Inject
-	IDetailActivityPresenter presenter;
+    IDetailViewPresenter presenter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
