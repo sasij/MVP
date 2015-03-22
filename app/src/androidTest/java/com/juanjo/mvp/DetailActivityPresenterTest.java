@@ -1,9 +1,8 @@
 package com.juanjo.mvp;
 
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.juanjo.mvp.interfaces.IDetailView;
+import com.juanjo.mvp.models.ImageDto;
+import com.juanjo.mvp.presenters.DetailViewPresenter;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -12,14 +11,15 @@ import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.juanjo.mvp.interfaces.IDetailView;
-import com.juanjo.mvp.models.ImageDto;
-import com.juanjo.mvp.presenters.DetailViewPresenter;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by juanjo on 20/03/15.
  */
-public class UnitTest extends TestCase {
+public class DetailActivityPresenterTest extends TestCase {
 
 	DetailViewPresenter presenter;
 
@@ -37,7 +37,6 @@ public class UnitTest extends TestCase {
 	}
 
 	public void testPresenteShouldNotBeNull() {
-
 		Assert.assertNotNull(presenter);
 	}
 
